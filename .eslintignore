@@ -1,0 +1,7 @@
+build/*.js
+config/*.js
+src/assets/js/*.js
+src/store/*.js
+src/store/modules/*.js
+src/router/*.js
+src/utils/*.js
