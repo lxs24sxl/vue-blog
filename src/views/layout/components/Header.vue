@@ -67,6 +67,8 @@ export default {
 
 <style lang="scss" scoped>
 .banner-wrapper {
+	background-size: contain;
+	background-attachment: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
