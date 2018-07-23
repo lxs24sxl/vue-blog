@@ -1,19 +1,63 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 const _import = require("./_import_" + process.env.NODE_ENV)
+
+import Layout from '@/views/layout/Layout'
+
 Vue.use(Router)
 
 export default new Router({
 	routes: [
+		{	
+			path: "/",
+			component: Layout,
+			name: "index",
+			redirect: "/index",
+			children: [
+				{
+					path: "index",
+					component: _import("index/index")
+				}
+			]
+		},
 		{
-		  path: "/",
-		  name: "home",
-		  component: _import("Home")
+		  path: "/photo",
+		  component: Layout,
+		  redirect: "/photo/index",
+		  name: "photo",
+		  children: [
+		  	{
+		  		path: "index",
+		  		name: "photoIndex",
+		  		component: _import("photo/index")
+		  	}
+		  ]
 		},
 		{
 		  path: "/about",
+		  component: Layout,
+		  redirect: "/about/index",
 		  name: "about",
-		  component: _import("About")
+		  children: [
+		  	{
+		  		path: "index",
+		  		name: "aboutIndex",
+		  		component: _import("about/index")
+		  	}
+		  ]
+		},
+		{
+		  path: "/tags",
+		  component: Layout,
+		  redirect: "/tags/index",
+		  name: "tags",
+		  children: [
+		  	{
+		  		path: "index",
+		  		name: "tagsIndex",
+		  		component: _import("tags/index")
+		  	}
+		  ]
 		},
 	]
 })
