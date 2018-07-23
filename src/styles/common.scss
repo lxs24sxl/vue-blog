@@ -9,6 +9,12 @@
 	background-color: transparent !important;
 	z-index: 2;
 }
+.xs-navbar.default {
+	background-color: #007bff !important;
+	.xs-nav-bg {
+		background-color: #007bff !important;
+	}
+}
 .xs-nav-bg {
 	position: absolute;
 	left: 0;
@@ -49,7 +55,7 @@
 		}
 	}
 }
-.navbar-dark.bg-white {
+.navbar-dark {
 	.navbar-brand {
 	}
 	.nav-link {

@@ -7,16 +7,23 @@ const app = {
 			title: "林晓舜的博客",
 			subTitle: "大人物只是不断进取的小人物",
 			bgImg: "http://eps.ink/img/post-bg-rwd.jpg",
+			isShowBanner: true
 		}
 	},
 	mutations: {
 		TOGGLE_TITLE: (state, title) => {
 			state.title = title
+		},
+		TOGGLE_BANNER: ( state, bannerInfo ) => {
+			state.bannerInfo = bannerInfo
 		}
 	},
 	actions: {
-		ToggleTitle: ({ commit }) => {
-			commit("TOGGLE_TITLE")
+		ToggleTitle: ({ commit, title  }) => {
+			commit("TOGGLE_TITLE", title )
+		},
+		ToggleBanner: ({ commit, state }) => {
+			commit("TOGGLE_BANNER", state )
 		}
 	}
 }

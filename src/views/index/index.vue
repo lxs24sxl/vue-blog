@@ -7,8 +7,16 @@
 export default {
 	data() {
 		return {
-			
+			bannerInfo: {
+				title: "林晓舜的博客",
+				subTitle: "大人物只是不断进取的小人物",
+				bgImg: "http://eps.ink/img/post-bg-rwd.jpg",
+				isShowBanner: true
+			}
 		}
+	},
+	created() {
+		this.$store.commit("TOGGLE_BANNER", this.bannerInfo)
 	}
 }
 </script>

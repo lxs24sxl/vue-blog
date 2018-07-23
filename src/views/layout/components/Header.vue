@@ -1,6 +1,6 @@
 <template>
 	<div class="containner">
-		<b-navbar toggleable="md" :type="isShowNav? 'light': 'dark'" variant="white" class="xs-navbar">
+		<b-navbar toggleable="md" :type="isShowNav && bannerInfo.isShowBanner? 'light': 'dark'" variant="white" :class="{'xs-navbar': true, 'default': !bannerInfo.isShowBanner}">
 			<!-- 标题orLogo -->
 		  <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
 		  <!-- 导航栏 -->
@@ -33,7 +33,7 @@
 		</b-navbar>
 		<!-- navbar-1.vue -->
 
-		<div class="banner-wrapper" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')'}">
+		<div class="banner-wrapper" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')', display: bannerInfo.isShowBanner?'block':'none' }">
 			<div class="site-heeader">
 				<h1>{{bannerInfo.title}}</h1>
 				<span>{{bannerInfo.subTitle}}</span>
