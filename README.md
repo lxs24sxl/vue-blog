@@ -10,9 +10,9 @@
 #### 项目构成
 
 <pre>
-├── public                     // index.html和部分静态资源
-├── static                   // 放置静态资源( 公共css js images资源 )
-├── src                   // 生产目录
+├── public                     		// index.html和部分静态资源
+├── static                   			// 放置静态资源( 公共css js images资源 )
+├── src                   				// 生产目录
 │   ├── api   	                  // 接口文件夹
 │   ├── assert   	            		// 编译资源文件夹
 │   ├── components   	            // 公用组件文件夹
