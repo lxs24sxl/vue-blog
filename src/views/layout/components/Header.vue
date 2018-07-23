@@ -1,6 +1,6 @@
 <template>
 	<div class="containner">
-		<b-navbar toggleable="md" :type="isShowNav && bannerInfo.isShowBanner? 'light': 'dark'" variant="white" :class="{'xs-navbar': true, 'default': !bannerInfo.isShowBanner}">
+		<b-navbar toggleable="md" :type="isShowNav && bannerInfo.isShowBanner? 'light': 'dark'" variant="white" :class="{'xs-navbar': true, 'default': !bannerInfo.isShowBanner, 'fixed': isFixed}">
 			<!-- 标题orLogo -->
 		  <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
 		  <!-- 导航栏 -->
@@ -28,13 +28,16 @@
 
 		  </b-collapse>
 		  <!-- 折叠后的 -->
-		  <b-navbar-toggle @click.native="toggleNav" target="nav_collapse"></b-navbar-toggle>
+		  <b-navbar-toggle 
+		  	@click.native="toggleNav" 
+		  	target="nav_collapse">
+		  </b-navbar-toggle>
 		  <div :class="{'xs-nav-bg': true, 'hide': !isShowNav}"></div>
 		</b-navbar>
 		<!-- navbar-1.vue -->
 
 		<div class="banner-wrapper" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')', display: bannerInfo.isShowBanner?'block':'none' }">
-			<div class="site-heeader">
+			<div :class="{'site-header': true, 'small': bannerInfo.size === 'small'}">
 				<h1>{{bannerInfo.title}}</h1>
 				<span>{{bannerInfo.subTitle}}</span>
 			</div>
@@ -45,36 +48,84 @@
 
 <script>
 import { mapGetters } from 'vuex';
+let timer;
+
 export default {
 	name: "Header",
 	data() {
 		return {
-			isShowNav: false
+			isShowNav: false,
+			scroll: '',
+			isFixed: false
 		}
 	},
 	computed: {
 		...mapGetters([
 			'bannerInfo'
-		])
+		]),
 	},
 	methods: {
 		toggleNav() {
 			this.isShowNav = !this.isShowNav;
+		},
+		scrollEvent() {
+			let that = this;
+			if ( timer ) {
+				clearTimeout( timer );
+			}
+			timer = setTimeout( function () {
+				that.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+				console.log(that.scroll)
+				if ( that.scroll >= 96 ) {
+					that.isFixed = true;
+				} else {
+					that.isFixed = false;
+				}
+			}, 150)
+		},
+		addHandler() {
+			return document.body.addEventListener ?
+				function ( target, eventType, handler ) {
+					target.addEventListener(eventType, handler, false);
+				}:
+				function ( target, eventType, handler ) {
+					target.attachEvent( "on" + eventType, handler );
+				};
+		},
+		removeHandler() {
+			return document.body.removeEventListener ?
+				function ( target, eventType, handler ) {
+					target.removeEventListener(eventType, handler, false);
+				}:
+				function ( target, eventType, handler ) {
+					target.detachEvent( "on" + eventType, handler );
+				};
 		}
 	},
+	mounted() {
+		window.addEventListener('scroll', this.scrollEvent);
+	}
 }
 </script>
 
 <style lang="scss" scoped>
 .banner-wrapper {
-	background-size: contain;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	.site-heeader {
+	.site-header {
 		padding: 150px 0;
 		color: #fff;
+		h1 {
+			font-weight: bold;
+			font-size: 3rem;
+		}
+	}
+	.site-header.small {
+		padding: 100px 0;
 	}
 }
 </style>

@@ -12,7 +12,8 @@ export default {
 				title: "关于林晓舜",
 				subTitle: "Email: 1001931638@139.com",
 				bgImg: "http://eps.ink/img/post-bg-rwd.jpg",
-				isShowBanner: true
+				isShowBanner: true,
+				size: "normal"
 			}
 		}
 	},

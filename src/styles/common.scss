@@ -8,11 +8,29 @@
 	width: 100%;
 	background-color: transparent !important;
 	z-index: 2;
+	transition: all .3s;
 }
 .xs-navbar.default {
 	background-color: #007bff !important;
+	position: relative;
 	.xs-nav-bg {
 		background-color: #007bff !important;
+	}
+}
+.xs-navbar.fixed {
+	position: fixed;
+	left: 0;
+	top: 0;
+	transform: translateY(0);
+	background-color: rgba(0,0,0, 0.8) !important;
+	animation: toFixed .4s ease;
+}
+@keyframes toFixed {
+	from {
+		transform: translateY(-56px);
+	}
+	to {
+		transform: translateY(0);
 	}
 }
 .xs-nav-bg {

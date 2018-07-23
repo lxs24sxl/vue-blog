@@ -12,7 +12,8 @@ export default {
 				title: "",
 				subTitle: "",
 				bgImg: "",
-				isShowBanner: false
+				isShowBanner: false,
+				size: "normal"
 			}
 		}
 	},

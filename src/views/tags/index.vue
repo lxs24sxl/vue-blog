@@ -10,8 +10,9 @@ export default {
 			bannerInfo: {
 				title: "标签",
 				subTitle: "hhhhhhhhhhha",
-				bgImg: "http://eps.ink/img/post-bg-rwd.jpg",
-				isShowBanner: true
+				bgImg: "http://eps.ink/img/tag-bg.jpg",
+				isShowBanner: true,
+				size: "small"
 			}
 		}
 	},
