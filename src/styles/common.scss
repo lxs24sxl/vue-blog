@@ -1,6 +1,14 @@
 :root {
 	--none: transparent;
 }
+html {
+	word-break: break-word;
+	text-rendering: optimizeLegibility;
+}
+body {
+	background-color: #f4f5f5;
+}
+
 .xs-navbar {
 	position: absolute;
 	left: 0;
@@ -25,6 +33,7 @@
 	background-color: rgba(0,0,0, 0.8) !important;
 	animation: toFixed .4s ease;
 }
+
 @keyframes toFixed {
 	from {
 		transform: translateY(-56px);
