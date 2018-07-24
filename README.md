@@ -15,7 +15,7 @@
 
 ![移动端展示的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/index-mobile.png)
 
-![移动端展示的图片2](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/index-mobile.png)
+![移动端展示的图片2](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/index-mobile2.png)
 
 #### 项目构成
 
