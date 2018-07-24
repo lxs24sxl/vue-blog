@@ -1,11 +1,33 @@
 <template>
-  <div class="index">
-    index
-  </div>
+  <main-section>
+    <left-section>
+      <blog-nav title="重点文章" :tags="tagList"></blog-nav>
+      <blog-panel :blogs="blogList"></blog-panel>
+    </left-section>
+    <right-section :width="240">
+      <blog-nav title="热门标签" size="small" :has-more="true" to="/tags/index"></blog-nav>
+      <tag-list :tags="tagList"></tag-list>
+    </right-section>
+  </main-section>
 </template>
 
 <script>
+import {
+  LeftSection,
+  RightSection,
+  MainSection
+} from '@/components/section/index';
+import { BlogNav, BlogPanel } from '@/components/blog/index';
+import { TagList } from '@/components/tag/index';
 export default {
+  components: {
+    LeftSection,
+    RightSection,
+    MainSection,
+    BlogNav,
+    BlogPanel,
+    TagList
+  },
   data() {
     return {
       bannerInfo: {
@@ -14,7 +36,36 @@ export default {
         bgImg: 'http://eps.ink/img/post-bg-rwd.jpg',
         isShowBanner: true,
         size: 'normal'
-      }
+      },
+      tagList: [
+        { id: '1001', title: '推荐' },
+        { id: '1002', title: 'javascript' },
+        { id: '1003', title: 'webpack' },
+        { id: '1004', title: 'css' }
+      ],
+      blogList: [
+        {
+          id: '201807241638',
+          title: '喜大普奔，Ant Design of Vue 1.0版本发布🎉🎉🎉',
+          time: '2018-07-24 16:38:00',
+          tag: 'vue',
+          author: 'lxs24sxl'
+        },
+        {
+          id: '201807241639',
+          title: '喜大普奔，Ant Design of react 3.0版本发布🎉🎉🎉',
+          time: '2018-07-24 16:38:00',
+          tag: 'react',
+          author: 'lxs24sxl'
+        },
+        {
+          id: '2018072416340',
+          title: '七天学不会nodejs--流',
+          time: '2018-07-24 16:38:00',
+          tag: 'node',
+          author: 'lxs24sxl'
+        }
+      ]
     };
   },
   created() {
@@ -22,10 +73,6 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
-.index {
-  .container {
-    // background-image: url("http://eps.ink/img/post-bg-desk.jpg");
-  }
-}
 </style>

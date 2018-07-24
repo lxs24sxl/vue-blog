@@ -21,6 +21,19 @@ export default new Router({
 			]
 		},
 		{
+		  path: "/blogs",
+		  component: Layout,
+		  redirect: "/blogs/index",
+		  name: "blogs",
+		  children: [
+		  	{
+		  		path: "index",
+		  		name: "blogsIndex",
+		  		component: _import("blogs/index")
+		  	}
+		  ]
+		},
+		{
 		  path: "/photo",
 		  component: Layout,
 		  redirect: "/photo/index",

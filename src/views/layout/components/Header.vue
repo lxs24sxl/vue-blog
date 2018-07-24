@@ -10,6 +10,9 @@
           <b-nav-item href="javscript: void(0);">
             <router-link to="/">首页</router-link>
           </b-nav-item>
+          <b-nav-item href="javscript: void(0);">
+            <router-link to="/blogs">文章</router-link>
+          </b-nav-item>
           <b-nav-item href="javscript: void(0);" disabled>
             <router-link to="/photo">图片集</router-link>
           </b-nav-item>
@@ -36,14 +39,15 @@
     </b-navbar>
     <!-- navbar-1.vue -->
 
-    <div class="banner-wrapper" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')', display: bannerInfo.isShowBanner?'block':'none' }">
+    <div class="banner-wrapper" :style="{ display: bannerInfo.isShowBanner?'block':'none' }">
       <div :class="'site-header '+bannerInfo.size">
         <h1>{{bannerInfo.title}}</h1>
         <h2>{{bannerInfo.subTitle}}</h2>
       </div>
+      <div class="banner-bg" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')'}"></div>
     </div>
   </div>
-  
+
 </template>
 
 <script>
@@ -74,7 +78,7 @@ export default {
       timer = setTimeout(function() {
         that.scroll =
           document.documentElement.scrollTop || document.body.scrollTop;
-        that.isFixed = that.scroll >= 96 ? true : false;
+        that.isFixed = that.scroll >= 56 ? true : false;
       }, 150);
     },
     addHandler() {
@@ -105,12 +109,23 @@ export default {
 
 <style lang="scss" scoped>
 .banner-wrapper {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  .banner-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: autoScale 10s linear infinite;
+  }
   .site-header,
   .site-header.big {
     padding: 150px 0;
@@ -130,6 +145,17 @@ export default {
     font-family: Lora, 'Times Mew Roman', serif;
     font-style: italic;
     font-weight: 300;
+  }
+}
+@keyframes autoScale {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.04) translateY(-6px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
   }
 }
 </style>

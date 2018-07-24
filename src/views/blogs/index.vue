@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img src="../../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
@@ -14,12 +14,19 @@ export default {
   components: {
     HelloWorld
   },
+  data() {
+    return {
+      bannerInfo: {
+        title: '',
+        subTitle: '',
+        bgImg: '',
+        isShowBanner: false,
+        size: 'normal'
+      }
+    };
+  },
   created() {
-    // getInit().then( res => {
-    // 	console.log("res");
-    // }).catch( err => {
-    // 	console.log( err);
-    // });
+    this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
   }
 };
 </script>
