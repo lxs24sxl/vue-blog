@@ -4,7 +4,7 @@
       <!-- 标题orLogo -->
       <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
       <!-- 导航栏 -->
-      <b-collapse is-nav id="nav_collapse">
+      <b-collapse is-nav id="nav_collapse"  @click.native="toggleNav">
 
         <b-navbar-nav class="ml-auto" right>
           <b-nav-item href="javscript: void(0);">
@@ -33,7 +33,7 @@
 
       </b-collapse>
       <!-- 折叠后的 -->
-      <b-navbar-toggle @click.native="toggleNav" target="nav_collapse">
+      <b-navbar-toggle id="toggleBtn" @click.native="toggleNav" target="nav_collapse">
       </b-navbar-toggle>
       <div :class="{'xs-nav-bg': true, 'hide': !isShowNav}"></div>
     </b-navbar>
@@ -64,10 +64,14 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['bannerInfo'])
+    ...mapGetters(['bannerInfo']),
+    isShow() {
+      return document.getElementById('toggleBtn').getAttribute('aria-expanded')
+    }
   },
   methods: {
     toggleNav() {
+      console.log();
       this.isShowNav = !this.isShowNav;
     },
     scrollEvent() {
@@ -149,13 +153,13 @@ export default {
 }
 @keyframes autoScale {
   0% {
-    transform: scale(1) translateY(0);
+    transform: scale(0.98) translateY(0);
   }
   50% {
-    transform: scale(1.04) translateY(-6px);
+    transform: scale(1) translateY(-6px);
   }
   100% {
-    transform: scale(1) translateY(0);
+    transform: scale(0.98) translateY(0);
   }
 }
 </style>

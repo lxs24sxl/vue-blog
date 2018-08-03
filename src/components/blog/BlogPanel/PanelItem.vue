@@ -17,7 +17,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </li>
 </template>
@@ -37,9 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.item {
-  border-bottom: 1px solid rgba(178, 186, 194, 0.15);
-}
 .content-box {
   min-height: 2.8rem;
   display: flex;
@@ -68,6 +64,9 @@ export default {
       align-items: baseline;
       white-space: nowrap;
       .item {
+        &.username {
+          color: #17aabb;
+        }
         &:not(:last-child) {
           &:not(.category) {
             transition: all 0.3s;

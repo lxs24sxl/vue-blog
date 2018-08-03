@@ -2,18 +2,19 @@
   <div>
     <Header></Header>
     <app-main></app-main>
-
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import { Header, AppMain } from './components/index';
+import { Header, AppMain, Footer } from './components/index';
 
 export default {
   name: 'Layout',
   components: {
     Header,
-    AppMain
+    AppMain,
+    Footer
   },
   data() {
     return {};
