@@ -16,7 +16,6 @@ const app = {
 			state.title = title
 		},
 		TOGGLE_BANNER: ( state, bannerInfo ) => {
-			console.log( bannerInfo);
 			state.bannerInfo = bannerInfo
 		}
 	},

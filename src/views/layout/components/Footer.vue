@@ -2,7 +2,7 @@
   <div class="footer-wrapper">
     <div class="footer-link">
       <ul class="link-list">
-        <li v-for="item in lxsLink" :key="item.site" class="link-item">
+        <li @click="switchToSite(item.link)" v-for="item in lxsLink" :key="item.site" class="link-item">
           <icon :name="item.site" scale="3"></icon>
         </li>
       </ul>
@@ -16,7 +16,10 @@ export default {
   data() {
     return {
       lxsLink: [
-        { site: 'weibo', link: '' },
+        {
+          site: 'weibo',
+          link: 'https://www.weibo.com/3545563737/profile?topnav=1&wvr=6'
+        },
         { site: 'github', link: 'https://github.com/lxs24sxl' },
         {
           site: 'facebook',
@@ -24,6 +27,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    switchToSite(link) {
+      window.open(link, '_blank');
+    }
   }
 };
 </script>
@@ -55,7 +63,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all .3s;
+        transition: all 0.3s;
         cursor: pointer;
         &:not(:first-child) {
           margin-left: 15px;

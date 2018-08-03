@@ -4,20 +4,10 @@
       <!-- 标题orLogo -->
       <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
       <!-- 导航栏 -->
-      <b-collapse is-nav id="nav_collapse" @click.native="toggleNav">
-
+      <b-collapse is-nav id="nav_collapse" @click="toggleNav">
         <b-navbar-nav class="ml-auto" right>
-          <b-nav-item href="javscript: void(0);">
-            <router-link to="/">首页</router-link>
-          </b-nav-item>
-          <b-nav-item href="javscript: void(0);">
-            <router-link to="/blogs">文章</router-link>
-          </b-nav-item>
-          <b-nav-item href="javscript: void(0);" disabled>
-            <router-link to="/photo">图片集</router-link>
-          </b-nav-item>
-          <b-nav-item href="javscript: void(0);">
-            <router-link to="/about">关于我</router-link>
+          <b-nav-item v-for="item in routerList" @click.capture="toggleNavItem(item.to)" :key="item.title">
+            <router-link :to="item.to">{{item.title}}</router-link>
           </b-nav-item>
           <b-nav-item-dropdown right>
             <!-- Using button-content slot -->
@@ -39,13 +29,14 @@
     </b-navbar>
     <!-- navbar-1.vue -->
 
-    <div class="banner-wrapper" :style="{ display: bannerInfo.isShowBanner?'block':'none' }">
+    <div class="banner-wrapper" v-if="bannerInfo.isShowBanner">
       <div :class="'site-header '+bannerInfo.size">
         <h1>{{bannerInfo.title}}</h1>
-        <h2>{{bannerInfo.subTitle}}</h2>
+        <h3>{{bannerInfo.subTitle}}</h3>
       </div>
       <div class="banner-bg" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')'}"></div>
     </div>
+    <div v-else class="filling-wrapper"></div>
   </div>
 
 </template>
@@ -60,16 +51,27 @@ export default {
     return {
       isShowNav: false,
       scroll: '',
-      isFixed: false
+      isFixed: false,
+      isRouterChange: false,
+      routerList: [
+        { title: '首页', to: '/index', disabled: false },
+        { title: '文章', to: '/blogs/index', disabled: false },
+        { title: '图片集', to: '/photo/index', disabled: false },
+        { title: '关于我', to: '/about/index', disabled: false }
+      ],
     };
   },
   computed: {
     ...mapGetters(['bannerInfo'])
   },
   methods: {
+    toggleNavItem(src) {
+      if (this.$route.path === src) {
+        this.isShowNav = true;
+      } 
+    },
     toggleNav() {
-      console.log();
-      this.isShowNav = !this.isShowNav;
+      this.isShowNav = document.getElementById('toggleBtn').getAttribute('aria-expanded');
     },
     scrollEvent() {
       let that = this;
@@ -102,13 +104,16 @@ export default {
     }
   },
   mounted() {
-    // this.addHandler(window, 'scroll', this.scrollEvent );
-    window.addEventListener('scroll', this.scrollEvent);
+    window.addEventListener('scroll', this.scrollEvent, true);
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.filling-wrapper {
+  height: 48.5px;
+  width: 100%;
+}
 .banner-wrapper {
   position: relative;
   display: flex;
@@ -132,6 +137,7 @@ export default {
     padding: 150px 0;
     color: #fff;
     h1 {
+      margin-bottom: 10px;
       font-weight: bold;
       font-size: 3rem;
     }
