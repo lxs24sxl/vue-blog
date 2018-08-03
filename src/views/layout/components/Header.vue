@@ -4,7 +4,7 @@
       <!-- 标题orLogo -->
       <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
       <!-- 导航栏 -->
-      <b-collapse is-nav id="nav_collapse"  @click.native="toggleNav">
+      <b-collapse is-nav id="nav_collapse" @click.native="toggleNav">
 
         <b-navbar-nav class="ml-auto" right>
           <b-nav-item href="javscript: void(0);">
@@ -64,10 +64,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['bannerInfo']),
-    isShow() {
-      return document.getElementById('toggleBtn').getAttribute('aria-expanded')
-    }
+    ...mapGetters(['bannerInfo'])
   },
   methods: {
     toggleNav() {

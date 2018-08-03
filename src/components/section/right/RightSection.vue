@@ -1,7 +1,9 @@
 <template>
-  <aside class="right-sidebar" :style="'width:' + width + 'px;min-width: width' ">
-    <slot></slot>
-  </aside>
+  <div>
+    <aside class="right-sidebar" :style="'width:' + width + 'px;min-width: width' ">
+      <slot></slot>
+    </aside>
+  </div>
 </template>
 
 <script>

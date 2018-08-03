@@ -85,7 +85,7 @@ export default {
           time: '2018-07-24 16:38:00',
           tag: 'node',
           author: 'lxs24sxl'
-        },
+        }
       ]
     };
   },

@@ -1,20 +1,16 @@
 <template>
-  <main-section class="footer-wrapper">
+  <div class="footer-wrapper">
     <div class="footer-link">
       <ul class="link-list">
         <li v-for="item in lxsLink" :key="item.site" class="link-item"></li>
       </ul>
       <div class="link-title">© 2018 · lxs24sxl · ALL RIGHT RESERVED · 中国-广东省-广州市</div>
     </div>
-  </main-section>
+  </div>
 </template>
 
 <script>
-import { MainSection } from '@/components/section/index';
 export default {
-  components: {
-    MainSection
-  },
   data() {
     return {
       lxsLink: [
@@ -34,10 +30,12 @@ export default {
 <style lang="scss" scoped>
 .footer {
   &-wrapper {
+    width: 100%;
     margin-top: 10px;
     border-top: 1px solid #eaecef;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
   }
   &-link {
     width: 100%;
