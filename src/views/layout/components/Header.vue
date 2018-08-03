@@ -150,13 +150,13 @@ export default {
 }
 @keyframes autoScale {
   0% {
-    transform: scale(0.98) translateY(0);
+    transform: scale(0.99) translateY(0);
   }
   50% {
     transform: scale(1) translateY(-6px);
   }
   100% {
-    transform: scale(0.98) translateY(0);
+    transform: scale(0.99) translateY(0);
   }
 }
 </style>

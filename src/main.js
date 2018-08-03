@@ -6,6 +6,10 @@ import store from './store/index';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+import Icon from 'vue-svg-icon/Icon.vue';
+Vue.component('icon', Icon);
+
 import './styles/common.scss';
 import './styles/reset.scss';
 
