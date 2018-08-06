@@ -23,7 +23,7 @@ export default {
     },
     tags: {
       type: Array,
-      default: []
+      default: null
     }
   },
   components: {

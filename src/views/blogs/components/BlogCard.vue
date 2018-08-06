@@ -22,7 +22,7 @@ export default {
 .card {
   &-wrapper {
     padding: 15px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     background-color: #fff;
     border-radius: 5px;
     > * {

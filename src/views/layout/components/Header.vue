@@ -58,7 +58,7 @@ export default {
         { title: '文章', to: '/blogs/index', disabled: false },
         { title: '图片集', to: '/photo/index', disabled: false },
         { title: '关于我', to: '/about/index', disabled: false }
-      ],
+      ]
     };
   },
   computed: {
@@ -68,10 +68,12 @@ export default {
     toggleNavItem(src) {
       if (this.$route.path === src) {
         this.isShowNav = true;
-      } 
+      }
     },
     toggleNav() {
-      this.isShowNav = document.getElementById('toggleBtn').getAttribute('aria-expanded');
+      this.isShowNav = document
+        .getElementById('toggleBtn')
+        .getAttribute('aria-expanded');
     },
     scrollEvent() {
       let that = this;

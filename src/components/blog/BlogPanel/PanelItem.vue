@@ -41,7 +41,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 0.6rem 1rem;
-  transition: background-color .4s;
+  transition: background-color 0.4s;
   &:hover {
     background-color: #eee;
   }
