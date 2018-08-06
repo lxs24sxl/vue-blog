@@ -41,6 +41,10 @@ export default {
   display: flex;
   align-items: center;
   padding: 0.6rem 1rem;
+  transition: background-color .4s;
+  &:hover {
+    background-color: #eee;
+  }
   .info-box {
     cursor: pointer;
     .title-row {

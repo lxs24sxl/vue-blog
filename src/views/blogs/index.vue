@@ -1,18 +1,21 @@
 <template>
-  <div class="home">
-    <img src="../../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="blogs">
+    <blogs-header 
+      :title="header_config.title"
+      :desc="header_config.desc"
+      :tags="header_config.tags"
+      />
+    <div class="blogs-content">
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-// import { getInit } from '@/api/app';
+import BlogsHeader from './components/BlogsHeader';
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    BlogsHeader
   },
   data() {
     return {
@@ -22,6 +25,16 @@ export default {
         bgImg: '',
         isShowBanner: false,
         size: 'normal'
+      },
+      header_config: {
+        title: "全部文章",
+        desc: "这是一个沉淀技术的个人网站;文章类型包括原创技术、吹水和转载",
+        tags: [
+          { id: '1001', title: '推荐' },
+          { id: '1002', title: 'javascript' },
+          { id: '1003', title: 'webpack' },
+          { id: '1004', title: 'css' }
+        ]
       }
     };
   },
@@ -30,3 +43,38 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+
+$bg: #4f000b;
+$itemBg1: #720026;
+$itemBg2: #ce4257;
+$itemBg3: #ffc093;
+$itemBg4: #ff7f51;
+$counterBg: #222;
+
+@mixin setColorAndHover($baseColor) {
+  color: $baseColor;
+  &:hover {
+    background: lighten($baseColor, 8%);
+  }
+}
+
+body,
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: $bg;
+  font-family: 'PT Mono', monospace;
+}
+.blogs {
+  max-width: 1110px;
+  margin: 0 auto;
+  &-content {
+    width: 100%;
+  }
+}
+</style>
+
