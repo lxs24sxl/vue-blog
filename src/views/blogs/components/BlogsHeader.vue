@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import { TagList } from '@/components/tag/index'
+import { TagList } from '@/components/tag/index';
 export default {
   props: {
     title: {
       type: String,
-      default: "默认标题"
+      default: '默认标题'
     },
     desc: {
       type: String,
-      default: "默认描述默认描述"
+      default: '默认描述默认描述'
     },
     tags: {
       type: Array,
@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     isShowTags() {
-      return this.tags.length
+      return this.tags.length;
     }
   },
   data() {
@@ -50,6 +50,8 @@ export default {
 <style lang="scss" scoped>
 .blogs {
   &-header {
+    margin-top: 10px;
+    border-radius: 5px;
     padding: 25px 25px 15px;
     background-color: #fff;
     p {

@@ -1,21 +1,19 @@
 <template>
   <div class="blogs">
-    <blogs-header 
-      :title="header_config.title"
-      :desc="header_config.desc"
-      :tags="header_config.tags"
-      />
-    <div class="blogs-content">
-    </div>
+    <blogs-header :title="header_config.title" :desc="header_config.desc" :tags="header_config.tags" />
+    <blogs-content>
+      <div slot="footer">目前就写了这么多~</div>
+    </blogs-content>
   </div>
 </template>
 
 <script>
-import BlogsHeader from './components/BlogsHeader';
+import { BlogsContent, BlogsHeader } from './components/index';
 export default {
   name: 'home',
   components: {
-    BlogsHeader
+    BlogsHeader,
+    BlogsContent
   },
   data() {
     return {
@@ -27,8 +25,8 @@ export default {
         size: 'normal'
       },
       header_config: {
-        title: "全部文章",
-        desc: "这是一个沉淀技术的个人网站;文章类型包括原创技术、吹水和转载",
+        title: '全部文章',
+        desc: '这是一个沉淀技术的个人网站;文章类型包括原创技术、吹水和转载',
         tags: [
           { id: '1001', title: '推荐' },
           { id: '1002', title: 'javascript' },
@@ -72,9 +70,6 @@ html {
 .blogs {
   max-width: 1110px;
   margin: 0 auto;
-  &-content {
-    width: 100%;
-  }
 }
 </style>
 
