@@ -244,7 +244,10 @@ export default {
      * 检查行数
      */
     checkColumn() {
-      let clientWidth = document.documentElement.offsetWidth;
+      let clientWidth =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
       let col = null;
       if (clientWidth > 1100) {
         col = 5;
