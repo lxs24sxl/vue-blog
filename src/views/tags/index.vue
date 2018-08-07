@@ -93,7 +93,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        transition: all .4s;
+        transition: all 0.4s;
         border-radius: 6px;
         &:hover {
           background-color: #999;
@@ -112,11 +112,10 @@ export default {
           margin-top: 6px;
           margin-bottom: 6px;
           display: flex;
-          justify-content: space-around
+          justify-content: space-around;
         }
       }
     }
   }
 }
 </style>
-

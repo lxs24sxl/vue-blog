@@ -3,7 +3,7 @@
     <div class="footer-link">
       <ul class="link-list">
         <li @click="switchToSite(item.link)" v-for="item in lxsLink" :key="item.site" class="link-item">
-          <icon :name="item.site" scale="3"></icon>
+          <i :class="`iconfont icon-${item.site}`"></i>
         </li>
       </ul>
       <div class="link-title">© 2018 · lxs24sxl · ALL RIGHT RESERVED · 中国-广东省-广州市</div>
@@ -37,6 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('./iconfont/iconfont.scss');
 .footer {
   &-wrapper {
     width: 100%;
@@ -70,6 +71,10 @@ export default {
         }
         &:hover {
           background-color: #999;
+        }
+        .iconfont {
+          color: #fff;
+          font-size: 24px;
         }
       }
       &-title {
