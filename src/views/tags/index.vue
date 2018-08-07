@@ -78,7 +78,7 @@ export default {
       box-sizing: border-box;
       text-align: center;
       padding: 10px;
-      @media screen and (min-width: 360px) {
+      @media screen and (min-width: 370px) {
         width: calc(100% / 2);
       }
       @media screen and (min-width: 720px) {

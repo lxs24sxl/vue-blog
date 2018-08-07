@@ -7,7 +7,7 @@ const getters = {
       ? true
       : false,
   bannerInfo: state => state.app.bannerInfo,
-  isWebp: () => {
+  isCanWebp: () => {
     try {
       return (
         document
