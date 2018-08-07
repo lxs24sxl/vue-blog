@@ -9,13 +9,17 @@
 - 真香,启用prettier检查代码，配合 yarn lint，使用vscode编码
 
 #### 博客展示图(未完善)
-![pc标签页页面的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/tag-pc2.webp)
-
-![无banner页面的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/photo-pc.png)
-
 ![移动端展示的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/index-mobile3.webp)
 
 ![移动端展示的图片2](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/index-mobile2.png)
+
+![pc标签页页面的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/tags-pc.webp)
+
+![关于我页面的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/about-pc.webp)
+
+![图片集页面的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/photo-pc.webp)
+
+![图片集移动端页面的图片](https://github.com/lxs24sxl/readme_add_pic/raw/master/images/vue-blog/photo-mobile3.webp)
 
 #### 项目构成
 
