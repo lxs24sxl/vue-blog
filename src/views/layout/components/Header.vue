@@ -122,6 +122,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: hidden;
   .banner-bg {
     position: absolute;
     left: 0;
@@ -132,7 +133,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    animation: autoScale 10s linear infinite;
+    animation: autoScale 12s linear infinite;
   }
   .site-header,
   .site-header.big {
@@ -158,13 +159,13 @@ export default {
 }
 @keyframes autoScale {
   0% {
-    transform: scale(0.99) translateY(0);
+    transform: scale(1) translateY(0);
   }
   50% {
-    transform: scale(1) translateY(-6px);
+    transform: scale(1.2) translateY(-6px);
   }
   100% {
-    transform: scale(0.99) translateY(0);
+    transform: scale(1) translateY(0);
   }
 }
 </style>
