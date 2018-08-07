@@ -52,8 +52,8 @@
             {
               time: "2015.09-2018-07",
               name: "Guangdong AIB Polytechnic College"
-            },
-          ]
+            }
+          ],
         }
       }
     </pre>
