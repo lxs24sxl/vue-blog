@@ -1,5 +1,5 @@
 <template>
-  <div class="containner">
+  <div class="containner clearfix">
     <b-navbar toggleable="md" :type="isShowNav && bannerInfo.isShowBanner? 'light': 'dark'" variant="white" :class="{'xs-navbar': true, 'default': !bannerInfo.isShowBanner, 'fixed': isFixed}">
       <!-- 标题orLogo -->
       <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
@@ -123,13 +123,14 @@ export default {
   align-items: center;
   text-align: center;
   overflow: hidden;
+  height: 100%;
   .banner-bg {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -139,6 +140,7 @@ export default {
   .site-header.big {
     padding: 150px 0;
     color: #fff;
+    z-index: 2;
     h1 {
       margin-bottom: 10px;
       font-weight: bold;
@@ -168,4 +170,5 @@ export default {
     transform: scale(1) translateY(0);
   }
 }
+
 </style>

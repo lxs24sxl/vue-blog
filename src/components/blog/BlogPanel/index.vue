@@ -32,5 +32,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.panel-wrapper {
+  .item {
+    &:last-child {
+      .entry {
+        .content-box {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
 </style>

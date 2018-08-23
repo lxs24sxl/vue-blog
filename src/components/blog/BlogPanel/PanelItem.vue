@@ -36,51 +36,54 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content-box {
-  min-height: 2.8rem;
-  display: flex;
-  align-items: center;
-  padding: 0.6rem 1rem;
-  transition: background-color 0.4s;
-  &:hover {
-    background-color: #eee;
-  }
-  .info-box {
-    cursor: pointer;
-    .title-row {
-      margin: 0.4rem 0.4rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: #2e3135;
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1;
-      &:hover {
-        text-decoration: underline;
-      }
+.entry {
+  .content-box {
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    transition: background-color 0.4s;
+    border-bottom: 1px solid rgba(143, 150, 156, 0.1);
+    &:hover {
+      background-color: #eee;
     }
-    flex: 1 1 auto;
-    flex-direction: column;
-    justify-content: center;
-    .meta-list {
-      display: flex;
-      align-items: baseline;
-      white-space: nowrap;
-      .item {
-        &.username {
-          color: #17aabb;
+    .info-box {
+      cursor: pointer;
+      .title-row {
+        margin: 0.4rem 0.4rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #2e3135;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1;
+        &:hover {
+          text-decoration: underline;
         }
-        &:not(:last-child) {
-          &:not(.category) {
-            transition: all 0.3s;
-            &:hover {
-              color: #000;
-            }
-            &::after {
-              content: '\B7';
-              margin: 0 0.4em;
-              color: #8f969c;
+      }
+      flex: 1 1 auto;
+      flex-direction: column;
+      justify-content: center;
+      .meta-list {
+        display: flex;
+        align-items: baseline;
+        white-space: nowrap;
+        .item {
+          &.username {
+            color: #17aabb;
+          }
+          &:not(:last-child) {
+            &:not(.category) {
+              transition: all 0.3s;
+              &:hover {
+                color: #000;
+              }
+              &::after {
+                content: '\B7';
+                margin: 0 0.4em;
+                color: #8f969c;
+              }
             }
           }
         }
@@ -88,6 +91,7 @@ export default {
     }
   }
 }
+
 .item.category {
   .category-title {
     display: inline-block;

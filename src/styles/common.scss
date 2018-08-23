@@ -7,6 +7,7 @@ html {
 }
 body {
 	background-color: #f4f5f5;
+	height: auto;
 }
 
 .xs-navbar {
@@ -15,7 +16,7 @@ body {
 	top: 0;
 	width: 100%;
 	background-color: transparent !important;
-	z-index: 2;
+	z-index: 4;
 	transition: all .3s;
 }
 .xs-navbar.default {
@@ -49,7 +50,7 @@ body {
 	height: 100%;
 	background-color: white;
 	z-index: -1;
-	transition: all .3s;
+	transition: all .6s;
 }
 .xs-nav-bg.hide {
 	background-color: transparent;
@@ -58,8 +59,7 @@ body {
 .navbar-toggler {
 	position: absolute;
 	right: 20px;
-	top: 10px;
-	transfrom: translateY( -50% );
+	top: 6px;
 }
 // 导航
 .nav-link {
@@ -98,4 +98,14 @@ body {
 
 .text-normal {
 	font-weight: 400 !important
+}
+
+.clearfix {
+	&::before, &::after {
+		display: table;
+		content: ''
+	}
+	&::after {
+		clear: both;
+	}
 }
