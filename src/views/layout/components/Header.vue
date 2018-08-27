@@ -68,7 +68,11 @@ export default {
     toggleNavItem(src) {
       if (this.$route.path === src) {
         this.isShowNav = true;
+      } else {
+         console.log( src )
+        this.$router.push({ path: src})
       }
+      
     },
     toggleNav() {
       this.isShowNav = document
