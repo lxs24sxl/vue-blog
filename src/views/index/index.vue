@@ -1,7 +1,7 @@
 <template>
   <main-section>
     <left-section>
-      <blog-nav title="重点文章" :tags="tagList"></blog-nav>
+      <blog-nav title="重点文章" :tags="mainTags"></blog-nav>
       <blog-panel :blogs="blogList"></blog-panel>
     </left-section>
     <right-section :width="240">
@@ -19,6 +19,7 @@ import {
 } from '@/components/section/index';
 import { BlogNav, BlogPanel } from '@/components/blog/index';
 import { TagList } from '@/components/tag/index';
+import { blogs, tags, mainTags } from '@/utils/data';
 export default {
   components: {
     LeftSection,
@@ -37,56 +38,9 @@ export default {
         isShowBanner: true,
         size: 'normal'
       },
-      tagList: [
-        { id: '1001', title: '推荐' },
-        { id: '1002', title: 'javascript' },
-        { id: '1003', title: 'webpack' },
-        { id: '1004', title: 'css' }
-      ],
-      blogList: [
-        {
-          id: '201807241638',
-          title: '喜大普奔，Ant Design of Vue 1.0版本发布🎉🎉🎉',
-          time: '2018-07-24 16:38:00',
-          tag: 'vue',
-          author: 'lxs24sxl'
-        },
-        {
-          id: '201807241639',
-          title: '喜大普奔，Ant Design of react 3.0版本发布🎉🎉🎉',
-          time: '2018-07-24 16:38:00',
-          tag: 'react',
-          author: 'lxs24sxl'
-        },
-        {
-          id: '2018072416340',
-          title: '七天学不会nodejs--流',
-          time: '2018-07-24 16:38:00',
-          tag: 'node',
-          author: 'lxs24sxl'
-        },
-        {
-          id: '2018072416341',
-          title: '七天学不会nodejs--流',
-          time: '2018-07-24 16:38:00',
-          tag: 'node',
-          author: 'lxs24sxl'
-        },
-        {
-          id: '2018072416342',
-          title: '七天学不会nodejs--流',
-          time: '2018-07-24 16:38:00',
-          tag: 'node',
-          author: 'lxs24sxl'
-        },
-        {
-          id: '2018072416343',
-          title: '七天学不会nodejs--流',
-          time: '2018-07-24 16:38:00',
-          tag: 'node',
-          author: 'lxs24sxl'
-        }
-      ]
+      tagList: tags,
+      blogList: blogs,
+      mainTags: mainTags
     };
   },
   created() {

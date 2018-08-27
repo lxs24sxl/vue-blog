@@ -9,7 +9,7 @@
           <div class="info-row">
             <ul class="meta-list">
               <li class="item category">
-                <span class="category-title">{{value.tag}}</span>
+                <span class="category-title" :style="`background-color: ${value.tag.bg_color}`">{{value.tag.title}}</span>
               </li>
               <li class="item username">{{value.author}}</li>
               <li class="item time">{{value.time}}</li>
