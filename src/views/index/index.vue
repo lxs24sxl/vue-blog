@@ -19,7 +19,7 @@ import {
 } from '@/components/section/index';
 import { BlogNav, BlogPanel } from '@/components/blog/index';
 import { TagList } from '@/components/tag/index';
-import { blogs, tags, mainTags } from '@/utils/data';
+import { blogs, tags, mainTags } from '@/data/index';
 export default {
   components: {
     LeftSection,

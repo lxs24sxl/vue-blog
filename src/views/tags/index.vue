@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+import { tags } from '@/data/index';
 export default {
   data() {
     return {
@@ -25,29 +26,7 @@ export default {
         isShowBanner: true,
         size: 'small'
       },
-      tagsList: [
-        { title: 'webpack', recent_time: '2018-08-07', id: '0001', count: '1' },
-        { title: 'vue.js', recent_time: '2018-08-07', id: '0002', count: '2' },
-        {
-          title: 'react.js',
-          recent_time: '2018-08-07',
-          id: '0003',
-          count: '1'
-        },
-        {
-          title: '微信小程序',
-          recent_time: '2018-08-07',
-          id: '0004',
-          count: '0'
-        },
-        {
-          title: 'javascript',
-          recent_time: '2018-08-07',
-          id: '0005',
-          count: '0'
-        },
-        { title: 'css', recent_time: '2018-08-07', id: '0006', count: '0' }
-      ]
+      tagsList: tags.slice(1)
     };
   },
   created() {

@@ -2,20 +2,26 @@ const unique = (list, key) => {
   let result = {};
   let finalResult = [];
   let oItem = null;
-  console.log("list",list);
   for (let i = 0, len = list.length; i < len; i++) {
     oItem = list[i];
-    result[oItem[key]] = oItem;
+    let curId = oItem[key];
+    if (result[curId]) {
+      result[curId].count += 1;
+    } else {
+      oItem.count = 1;
+      result[curId] = oItem;
+    }
   }
   for (let item in result) {
-    finalResult.push(result[item]);
+    finalResult.push (result[item]);
   }
+  console.log('finalResult', finalResult);
   return finalResult;
-}
+};
 
-const test = () => {}
+const test = () => {};
 
 export default {
   unique,
-  test
-}
+  test,
+};

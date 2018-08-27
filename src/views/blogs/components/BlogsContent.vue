@@ -1,6 +1,6 @@
 <template>
   <div class="blogs-content">
-    <blog-card v-for="item in [1,2,3,4]" :key="item"></blog-card>
+    <blog-card v-for="blog in blogs" :key="blog.id" :blog="blog"></blog-card>
     <div class="footer">
       <slot name="footer"></slot>
     </div>
@@ -10,6 +10,7 @@
 <script>
 import { BlogCard } from './index';
 export default {
+  props: ['blogs'],
   components: {
     BlogCard
   },
