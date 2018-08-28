@@ -69,10 +69,8 @@ export default {
       if (this.$route.path === src) {
         this.isShowNav = true;
       } else {
-         console.log( src )
-        this.$router.push({ path: src})
+        this.$router.push({ path: src });
       }
-      
     },
     toggleNav() {
       this.isShowNav = document
@@ -174,5 +172,4 @@ export default {
     transform: scale(1) translateY(0);
   }
 }
-
 </style>

@@ -2,7 +2,7 @@
   <div class="blogs">
     <blogs-header :title="header_config.title" :desc="header_config.desc" :tags="tags" />
     <blogs-content :blogs="blogs">
-      <div slot="footer">目前就写了这么多~</div>
+      <div v-once slot="footer">目前就写了这么多~</div>
     </blogs-content>
   </div>
 </template>

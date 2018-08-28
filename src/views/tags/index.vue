@@ -1,6 +1,6 @@
 <template>
   <div class="tags-wrapper">
-    <h3>全部标签</h3>
+    <h3 v-once>全部标签</h3>
     <ul class="tags-list">
       <li class="tags-item" v-for="item in tagsList" :key="item.id">
         <div class="item-inner">

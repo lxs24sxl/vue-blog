@@ -13,7 +13,9 @@
     "eslint-config-prettier": "^2.9.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.5",

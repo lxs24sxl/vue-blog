@@ -6,7 +6,7 @@
           <i :class="`iconfont icon-${item.site}`"></i>
         </li>
       </ul>
-      <div class="link-title">© 2018 · lxs24sxl · ALL RIGHT RESERVED · 中国-广东省-广州市</div>
+      <div class="link-title" v-once>© 2018 · lxs24sxl · ALL RIGHT RESERVED · 中国-广东省-广州市</div>
     </div>
   </div>
 </template>

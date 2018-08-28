@@ -3,7 +3,7 @@
     <h1 class="text-normal">{{title}}</h1>
     <p>{{desc}}</p>
     <div v-if="isShowTags" class="blogs-tags">
-      <div class="tags-title">热门标签</div>
+      <div v-once class="tags-title">热门标签</div>
       <tag-list :tags="tags"></tag-list>
     </div>
   </div>
