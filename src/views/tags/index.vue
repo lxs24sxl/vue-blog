@@ -22,7 +22,7 @@ export default {
       bannerInfo: {
         title: '标签',
         subTitle: 'Be My Personal Best',
-        bgImg: 'http://eps.ink/img/tag-bg.jpg',
+        bgImg: 'http://pe5ih5pil.bkt.clouddn.com/tag-bg.jpg',
         isShowBanner: true,
         size: 'small'
       },

@@ -34,7 +34,7 @@ export default {
       bannerInfo: {
         title: '林晓舜的博客',
         subTitle: '大人物只是不断进取的小人物',
-        bgImg: 'http://eps.ink/img/post-bg-rwd.jpg',
+        bgImg: 'http://pe5ih5pil.bkt.clouddn.com/post-bg-rwd.jpg',
         isShowBanner: true,
         size: 'normal'
       },
