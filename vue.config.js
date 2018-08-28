@@ -13,6 +13,15 @@ module.exports = {
   outputDir: 'dist',
   chainWebpack: config => {
     config.resolve.alias.set('@', resolve('src'));
+    config.module
+      .rule('js')
+      .test(/\.js$/)
+      .include.add(path.resolve(__dirname, 'src'))
+      .add(require.resolve('bootstrap-vue'))
+      .end()
+      .use('babel-loader')
+      .loader('babel-loader')
+      .end();
   },
   productionSourceMap: false, // 清除生产环境中的source map
   devServer: {
