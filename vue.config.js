@@ -30,8 +30,8 @@ module.exports = {
     port: 1234,
     https: false,
     hotOnly: false,
-    proxy: null,
-    inline: true
+    proxy: null
+    // inline: true
     // before: app => {}
   },
   configureWebpack: {

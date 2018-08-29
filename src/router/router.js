@@ -72,5 +72,18 @@ export default new Router({
 		  	}
 		  ]
 		},
+		{
+			path: "/article",
+			component: Layout,
+			redirect: "/article/index",
+			name: 'article',
+			children: [
+				{
+					path: 'index',
+					name: 'articleIndex',
+					component: _import('article/index')
+				}
+			]
+		}
 	]
 })
