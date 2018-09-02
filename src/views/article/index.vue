@@ -11,7 +11,7 @@
           <code>vue.config.js</code>
           :
         </p>
-        <xs-code :contents="contents"></xs-code>
+        <xs-code type="css" :contents="contents"></xs-code>
         <p>
           该对象将使用
           <a href="#" target="_blank" title="webpack-merge">webpack-merge</a>
@@ -19,7 +19,7 @@
         </p>
         <xs-block :block="block"></xs-block>
         <p>如果您需要基于环境的条件行为，或者想要直接改变配置，请使用一个函数（在设置env变量后将对其进行惰性求值）。该函数接收已解析的配置作为参数。在函数内部，您可以直接改变配置，或者返回一个将被合并的对象：</p>
-        <xs-code :contents="contents2"></xs-code>
+        <xs-code type="js" :contents="contents2"></xs-code>
         <h2>链接(高级)</h2>
         <xs-block :block="block2"></xs-block>
       </div>
@@ -89,47 +89,9 @@ export default {
       }
     };
   },
-  methods: {
-    strTrim(str) {
-      let space = '';
-      let type = 'other';
-      console.log(str.split('\n'));
-      // 遍历数组
-      let codeArr = str.split('\n').map(item => {
-        // 获取清除前后空格的值
-        let oItem = item.replace(/(^\s*)|(\s*$)/g, '');
-        // 获取最后一个值
-        let lastWord = oItem.slice(-1);
-        // 判断类型 => { or [ 为前, } or ] 为后，其余为默认
-        type = /(\[|\{)/.test(lastWord)
-          ? 'before'
-          : /(\]|\})/.test(lastWord)
-            ? 'after'
-            : 'other';
-        // 当为 '前' 类型时，先输出数据，后加空格， 当为 '后' 类型时，先清除空格，后输出数据
-        switch (type) {
-          case 'before':
-            oItem = space + oItem;
-            space += '  ';
-            break;
-          case 'after':
-            space = space.slice(2);
-            oItem = space + oItem;
-            break;
-          default:
-            oItem = space + oItem;
-            break;
-        }
-        return oItem;
-      });
-      if (codeArr[0] !== '') codeArr.splice(0, 0, '');
-      if (codeArr[codeArr.length - 1] === '') codeArr.pop();
-      console.log(codeArr.join('\n'));
-      return codeArr.join('\n');
-    }
-  },
+  methods: {},
   created() {
-    this.contents = this.strTrim(`// vue.config.js
+    this.contents = `// vue.config.js
       module.exports = {
   configureWebpack: {
     plugins: [
@@ -137,8 +99,8 @@ export default {
     ]
   }
 }
-    `);
-    this.contents2 = this.strTrim(`
+    `;
+    this.contents2 = `
     // vue.config.js
     module.exports = {
       configureWebpack: config => {
@@ -149,7 +111,7 @@ export default {
         }
       }
     }
-    `);
+    `;
     this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
   }
 };
