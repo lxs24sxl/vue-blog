@@ -112,6 +112,7 @@ export default {
       }
     }
     `;
+    console.log('测试');
     this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
   }
 };
