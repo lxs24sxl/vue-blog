@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import { BlogsContent, BlogsHeader } from './components/index';
-import { tags, blogs } from '@/data/index';
+import { BlogsContent, BlogsHeader } from './components/index'
+import { tags, blogs } from '@/data/index'
 export default {
   name: 'home',
   components: {
     BlogsHeader,
     BlogsContent
   },
-  data() {
+  data () {
     return {
       bannerInfo: {
         title: '',
@@ -31,12 +31,12 @@ export default {
       },
       tags: tags,
       blogs: blogs
-    };
+    }
   },
-  created() {
-    this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
+  created () {
+    this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

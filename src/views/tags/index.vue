@@ -2,7 +2,9 @@
   <div class="tags-wrapper">
     <h3 v-once>全部标签</h3>
     <ul class="tags-list">
-      <li class="tags-item" v-for="item in tagsList" :key="item.id">
+      <li class="tags-item"
+          v-for="item in tagsList"
+          :key="item.id">
         <div class="item-inner">
           <div class="img"></div>
           <span><strong>{{item.title}}</strong></span>
@@ -15,24 +17,25 @@
   </div>
 </template>
 <script>
-import { tags } from '@/data/index';
+import { tags } from '@/data/index'
+import IndexImg from '@/assets/images/index/index-bg.jpg'
 export default {
-  data() {
+  data () {
     return {
       bannerInfo: {
         title: '标签',
         subTitle: 'Be My Personal Best',
-        bgImg: 'http://pe5ih5pil.bkt.clouddn.com/tag-bg.jpg',
+        bgImg: IndexImg,
         isShowBanner: true,
         size: 'small'
       },
       tagsList: tags.slice(1)
-    };
+    }
   },
-  created() {
-    this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
+  created () {
+    this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

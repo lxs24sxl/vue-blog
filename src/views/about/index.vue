@@ -15,7 +15,7 @@
           province: "Guangdong",
           city: "Guangzhou",
           languages: {
-            Chinese: "native", 
+            Chinese: "native",
             English: "basic"
           },
           hobbies: [
@@ -25,25 +25,25 @@
         },
         sklls: {
           front-end_languages: [
-            "webpack", 
-            "vue.js", 
-            "mini programs, 
-            "react.js", 
-            "javascript", 
-            "html5", 
-            "underscore.js", 
-            "css/html", 
+            "webpack",
+            "vue.js",
+            "mini programs,
+            "react.js",
+            "javascript",
+            "html5",
+            "underscore.js",
+            "css/html",
             "bootstrap"
           ],
           computer_software: [
-            "VsCode", 
-            "Sublime Text", 
-            "Android Studio", 
-            "Microsoft office", 
+            "VsCode",
+            "Sublime Text",
+            "Android Studio",
+            "Microsoft office",
             "so on"
           ],
-          certificate: [ 
-            "CET-4", 
+          certificate: [
+            "CET-4",
             "NCRE 3-Software Testing",
             "China National Scholarship(2017)",
             "National Endeavor Scholarship(2016)"
@@ -62,22 +62,23 @@
   </div>
 </template>
 <script>
+import IndexImg from '@/assets/images/index/index-bg.jpg'
 export default {
-  data() {
+  data () {
     return {
       bannerInfo: {
         title: '关于林晓舜',
         subTitle: 'Email: 1001931638@139.com',
-        bgImg: 'http://pe5ih5pil.bkt.clouddn.com/post-bg-desk.jpg',
+        bgImg: IndexImg,
         isShowBanner: true,
         size: 'normal'
       }
-    };
+    }
   },
-  created() {
-    this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
+  created () {
+    this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }
-};
+}
 </script>
 <style lang="scss">
 .about {

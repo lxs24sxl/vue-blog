@@ -1,3 +1,3 @@
-export { default as BlogCard } from './BlogCard.vue';
-export { default as BlogsHeader } from './BlogsHeader.vue';
-export { default as BlogsContent } from './BlogsContent.vue';
+export { default as BlogCard } from './blog-card.vue'
+export { default as BlogsHeader } from './blogs-header.vue'
+export { default as BlogsContent } from './blogs-content.vue'

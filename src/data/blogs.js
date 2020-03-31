@@ -82,7 +82,7 @@ let blogs = [
     author: 'lxs24sxl',
     copyright: '1'
   }
-];
+]
 
 // let tags = utils.unique(
 //   [{ id: 10001, title: '推荐' }].concat(
@@ -105,4 +105,4 @@ let blogs = [
 //   { id: '1003', title: 'webpack' },
 //   { id: '1004', title: 'css' }
 // ],
-export default blogs;
+export default blogs

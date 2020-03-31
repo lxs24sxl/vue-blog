@@ -8,10 +8,10 @@
 <script>
 export default {
   props: ['block'],
-  data() {
-    return {};
+  data () {
+    return {}
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

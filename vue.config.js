@@ -1,18 +1,39 @@
-const path = require('path');
-let WebpackParalledUglifyPlugin = require('webpack-parallel-uglify-plugin');
-let BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const path = require('path')
 
-function resolve(dir) {
-  return path.join(__dirname, dir);
+const {
+  OUTPUT_DIR,
+  ASSETS_DIR,
+  FILENAME_HASHING,
+  PRODUCTION_SOURCE_MAP,
+  VUE_APP_PUBLIC_PATH,
+  PORT
+} = process.env
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
 }
 
+function convertnNumStrToBool (numStr) {
+  return !!+numStr
+}
 module.exports = {
-  // For example, if your app is deployed at https://foobar.com/vue-blog set baseUrl to '/vue-blog/'
-  baseUrl: process.env.NODE_ENV === 'production' ? '/' : '/',
-  outputDir: 'dist',
+  publicPath: VUE_APP_PUBLIC_PATH || '',
+
+  // 打包后文件目录
+  outputDir: OUTPUT_DIR,
+
+  // 打包后静态文件目录
+  assetsDir: ASSETS_DIR,
+
+  // 打包后静态文件名是否包含哈希值
+  filenameHashing: convertnNumStrToBool(FILENAME_HASHING),
+
+  // source map
+  productionSourceMap: convertnNumStrToBool(PRODUCTION_SOURCE_MAP),
+
   chainWebpack: config => {
-    config.resolve.alias.set('@', resolve('src'));
+    config.plugins.delete('prefetch')
+    config.plugins.delete('preload')
     config.module
       .rule('js')
       .test(/\.js$/)
@@ -21,35 +42,83 @@ module.exports = {
       .end()
       .use('babel-loader')
       .loader('babel-loader')
-      .end();
+      .end()
   },
-  productionSourceMap: false, // 清除生产环境中的source map
-  devServer: {
-    open: process.platform === 'darwin',
-    host: '0.0.0.0',
-    port: 1234,
-    https: false,
-    hotOnly: false,
-    proxy: null
-    // inline: true
-    // before: app => {}
-  },
-  configureWebpack: {
-    plugins: [
-      new WebpackParalledUglifyPlugin({
-        uglifyJS: {
-          output: {
-            comments: true //不保留注释
-          },
-          compress: {
-            warnings: false, // 在UglifyJs删除没有用到的代码时不输出警告
-            drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
-            collapse_vars: true, // 内嵌定义了但是只用到一次的变量
-            reduce_vars: true // 提取出出现多次但是没有定义成变量去引用的静态值
+
+  configureWebpack: () => {
+    const plugins = []
+
+    if (process.env.BUNDLER_ANALYZER) {
+      const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+        .BundleAnalyzerPlugin
+      plugins.push(new BundleAnalyzerPlugin())
+    }
+
+    return {
+      optimization: {
+        runtimeChunk:
+          process.env.NODE_ENV === 'production' ? { name: 'manifest' } : false,
+        splitChunks: {
+          automaticNameDelimiter: '--',
+          cacheGroups: {
+            vendors: {
+              name: 'vendors',
+              chunks: 'initial',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 2,
+              minChunks: 2
+            },
+            'element-ui': {
+              name: 'element-ui',
+              test: module => /element-ui/g.test(module.context),
+              chunks: 'initial',
+              priority: 10
+            },
+            vue: {
+              name: 'vue-common',
+              test: module => /vue|axios/g.test(module.context),
+              chunks: 'initial',
+              priority: 8
+            },
+            echarts: {
+              name: 'echarts',
+              test: module => /echarts|zrender|v-charts/g.test(module.context),
+              chunks: 'initial',
+              priority: 9
+            }
           }
         }
-      }),
-      new BundleAnalyzerPlugin()
-    ]
+      },
+
+      plugins: [...plugins],
+
+      resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+          '@': 'src',
+          src: resolve('src'),
+          assets: resolve('src/assets'),
+          config: resolve('src/config'),
+          utils: resolve('src/utils')
+        }
+      }
+    }
+  },
+
+  devServer: {
+    port: PORT,
+    https: false,
+    proxy: {
+      '/api': {
+        // target: 'https://lxs24sxl.cn/api',
+        target: 'https://lxs24sxl.cn/api',
+        changeOrigin: true,
+        secure: false,
+        ws: false,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
-};
+}

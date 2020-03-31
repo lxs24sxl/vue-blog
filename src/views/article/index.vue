@@ -27,14 +27,14 @@
   </div>
 </template>
 <script>
-import XsCode from './components/xs-code';
-import XsBlock from './components/xs-block';
+import XsCode from './components/xs-code'
+import XsBlock from './components/xs-block'
 export default {
   components: {
     XsCode,
     XsBlock
   },
-  data() {
+  data () {
     return {
       bannerInfo: {
         title: '',
@@ -87,10 +87,10 @@ export default {
       <code>vue.config.js</code>
       将在配置内的多个位置使用，以确保一切正常工作。`
       }
-    };
+    }
   },
   methods: {},
-  created() {
+  created () {
     this.contents = `// vue.config.js
       module.exports = {
   configureWebpack: {
@@ -99,7 +99,7 @@ export default {
     ]
   }
 }
-    `;
+    `
     this.contents2 = `
     // vue.config.js
     module.exports = {
@@ -111,11 +111,11 @@ export default {
         }
       }
     }
-    `;
-    console.log('测试');
-    this.$store.commit('TOGGLE_BANNER', this.bannerInfo);
+    `
+    console.log('测试')
+    this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -141,7 +141,6 @@ p a code {
   font-weight: 600 !important;
 }
 </style>
-
 
 <style lang="scss" scoped>
 h2 {
