@@ -1,4 +1,4 @@
 const config = {
-	baseURL: "www.test.com"
+  BASE_URL: "www.test.com"
 }
 export default config
