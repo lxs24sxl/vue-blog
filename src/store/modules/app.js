@@ -1,4 +1,6 @@
 const app = {
+  name: 'App',
+
   state: {
     title: "林晓舜的博客-首页",
     email: "1001931638@139.com",
@@ -11,6 +13,12 @@ const app = {
       size: 'normal'
     }
   },
+
+  getters: {
+    bannerInfo: state => state.bannerInfo,
+    title: state => state.title
+  },
+
   mutations: {
     TOGGLE_TITLE: (state, title) => {
       state.title = title
@@ -19,6 +27,7 @@ const app = {
       state.bannerInfo = bannerInfo
     }
   },
+
   actions: {
     ToggleTitle: ({ commit, title }) => {
       commit("TOGGLE_TITLE", title)

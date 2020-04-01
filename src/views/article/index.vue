@@ -11,29 +11,28 @@
           <code>vue.config.js</code>
           :
         </p>
-        <xs-code type="css" :contents="contents"></xs-code>
+        <v-code type="css"
+                :contents="contents"></v-code>
         <p>
           该对象将使用
-          <a href="#" target="_blank" title="webpack-merge">webpack-merge</a>
+          <a href="#"
+             target="_blank"
+             title="webpack-merge">webpack-merge</a>
           合并到最终的webpack配置中。
         </p>
-        <xs-block :block="block"></xs-block>
+        <v-block :block="block"></v-block>
         <p>如果您需要基于环境的条件行为，或者想要直接改变配置，请使用一个函数（在设置env变量后将对其进行惰性求值）。该函数接收已解析的配置作为参数。在函数内部，您可以直接改变配置，或者返回一个将被合并的对象：</p>
-        <xs-code type="js" :contents="contents2"></xs-code>
+        <v-code type="js"
+                :contents="contents2"></v-code>
         <h2>链接(高级)</h2>
-        <xs-block :block="block2"></xs-block>
+        <v-block :block="block2"></v-block>
       </div>
     </article>
   </div>
 </template>
+
 <script>
-import XsCode from './components/xs-code'
-import XsBlock from './components/xs-block'
 export default {
-  components: {
-    XsCode,
-    XsBlock
-  },
   data () {
     return {
       bannerInfo: {
@@ -43,76 +42,76 @@ export default {
         isShowBanner: false,
         size: 'normal'
       },
-      contents: '',
-      contents2: '',
+      contents: `
+        // vue.config.js
+        module.exports = {
+          configureWebpack: {
+            plugins: [
+              new MyAwesomeWebpackPlugin()
+            ]
+          }
+        }
+      `,
+      contents2: `
+        // vue.config.js
+        module.exports = {
+          configureWebpack: config => {
+            if ( process.env.NODE_ENV === 'production' ) {
+              // mutate config for production...
+            } else {
+              // mutate for developments...
+            }
+          }
+        }
+      `,
       block: {
         type: 'warning',
         title: '警告',
-        content: `某些webpack选项是根据值设置的
-      <code>vue.config.js</code>
-      ，不应直接进行变异。例如
-      <code>output.path</code>
-      您应该使用
-      <code>outputDir</code>
-      选项in 而不是修改
-      <code>vue.config.js</code>
-      ; 而不是修改
-      <code>output.publicPath</code>
-      ，你应该使用
-      <code>baseUrl</code>
-      选项
-      <code>vue.config.js</code>
-      。这是因为值
-      <code>vue.config.js</code>
-      将在配置内的多个位置使用，以确保一切正常工作。`
+        content: `
+        某些webpack选项是根据值设置的
+        <code>vue.config.js</code>
+        ，不应直接进行变异。例如
+        <code>output.path</code>
+        您应该使用
+        <code>outputDir</code>
+        选项in 而不是修改
+        <code>vue.config.js</code>
+        ; 而不是修改
+        <code>output.publicPath</code>
+        ，你应该使用
+        <code>baseUrl</code>
+        选项
+        <code>vue.config.js</code>
+        。这是因为值
+        <code>vue.config.js</code>
+        将在配置内的多个位置使用，以确保一切正常工作。`
       },
       block2: {
         type: 'tip',
         title: '提示',
-        content: `某些webpack选项是根据值设置的
-      <code>vue.config.js</code>
-      ，不应直接进行变异。例如
-      <code>output.path</code>
-      您应该使用
-      <code>outputDir</code>
-      选项in 而不是修改
-      <code>vue.config.js</code>
-      ; 而不是修改
-      <code>output.publicPath</code>
-      ，你应该使用
-      <code>baseUrl</code>
-      选项
-      <code>vue.config.js</code>
-      。这是因为值
-      <code>vue.config.js</code>
-      将在配置内的多个位置使用，以确保一切正常工作。`
+        content: `
+          某些webpack选项是根据值设置的
+          <code>vue.config.js</code>
+          ，不应直接进行变异。例如
+          <code>output.path</code>
+          您应该使用
+          <code>outputDir</code>
+          选项in 而不是修改
+          <code>vue.config.js</code>
+          ; 而不是修改
+          <code>output.publicPath</code>
+          ，你应该使用
+          <code>baseUrl</code>
+          选项
+          <code>vue.config.js</code>
+          。这是因为值
+          <code>vue.config.js</code>
+          将在配置内的多个位置使用，以确保一切正常工作。`
       }
     }
   },
-  methods: {},
+
   created () {
-    this.contents = `// vue.config.js
-      module.exports = {
-  configureWebpack: {
-    plugins: [
-      new MyAwesomeWebpackPlugin()
-    ]
-  }
-}
-    `
-    this.contents2 = `
-    // vue.config.js
-    module.exports = {
-      configureWebpack: config => {
-        if ( process.env.NODE_ENV === 'production' ) {
-          // mutate config for production...
-        } else {
-          // mutate for developments...
-        }
-      }
-    }
-    `
-    console.log('测试')
     this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }
 }

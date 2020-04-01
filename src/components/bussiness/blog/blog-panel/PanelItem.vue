@@ -9,7 +9,8 @@
           <div class="info-row">
             <ul class="meta-list">
               <li class="item category">
-                <span class="category-title" :style="`background-color: ${value.tag.bg_color}`">{{value.tag.title}}</span>
+                <span class="category-title"
+                      :style="`background-color: ${value.tag.bg_color}`">{{value.tag.title}}</span>
               </li>
               <li class="item username">{{value.author}}</li>
               <li class="item time">{{value.time}}</li>
@@ -23,9 +24,6 @@
 
 <script>
 export default {
-  data () {
-    return {}
-  },
   props: {
     value: {
       type: Object,
@@ -80,7 +78,7 @@ export default {
                 color: #000;
               }
               &::after {
-                content: '\B7';
+                content: "\B7";
                 margin: 0 0.4em;
                 color: #8f969c;
               }

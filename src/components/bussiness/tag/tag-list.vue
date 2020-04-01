@@ -12,12 +12,10 @@
 <script>
 import Tag from './tag'
 export default {
-  data () {
-    return {}
-  },
   components: {
     Tag
   },
+
   props: {
     tags: {
       type: Array,

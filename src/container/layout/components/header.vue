@@ -1,12 +1,20 @@
 <template>
   <div class="containner clearfix">
-    <b-navbar toggleable="md" :type="isShowNav && bannerInfo.isShowBanner? 'light': 'dark'" variant="white" :class="{'xs-navbar': true, 'default': !bannerInfo.isShowBanner, 'fixed': isFixed}">
+    <b-navbar toggleable="md"
+              :type="isShowNav && bannerInfo.isShowBanner? 'light': 'dark'"
+              variant="white"
+              :class="{'xs-navbar': true, 'default': !bannerInfo.isShowBanner, 'fixed': isFixed}">
       <!-- 标题orLogo -->
       <b-navbar-brand href="#">lxs24sxl</b-navbar-brand>
       <!-- 导航栏 -->
-      <b-collapse is-nav id="nav_collapse" @click="toggleNav">
-        <b-navbar-nav class="ml-auto" right>
-          <b-nav-item v-for="item in routerList" @click.capture="toggleNavItem(item.to)" :key="item.title">
+      <b-collapse is-nav
+                  id="nav_collapse"
+                  @click="toggleNav">
+        <b-navbar-nav class="ml-auto"
+                      right>
+          <b-nav-item v-for="item in routerList"
+                      @click.capture="toggleNavItem(item.to)"
+                      :key="item.title">
             <router-link :to="item.to">{{item.title}}</router-link>
           </b-nav-item>
           <b-nav-item-dropdown right>
@@ -23,20 +31,25 @@
 
       </b-collapse>
       <!-- 折叠后的 -->
-      <b-navbar-toggle id="toggleBtn" @click.native="toggleNav" target="nav_collapse">
+      <b-navbar-toggle id="toggleBtn"
+                       @click.native="toggleNav"
+                       target="nav_collapse">
       </b-navbar-toggle>
       <div :class="{'xs-nav-bg': true, 'hide': !isShowNav}"></div>
     </b-navbar>
     <!-- navbar-1.vue -->
 
-    <div class="banner-wrapper" v-if="bannerInfo.isShowBanner">
+    <div class="banner-wrapper"
+         v-if="bannerInfo.isShowBanner">
       <div :class="'site-header '+bannerInfo.size">
         <h1>{{bannerInfo.title}}</h1>
         <h3>{{bannerInfo.subTitle}}</h3>
       </div>
-      <div class="banner-bg" :style="{backgroundImage: 'url('+bannerInfo.bgImg+')'}"></div>
+      <div class="banner-bg"
+           :style="{backgroundImage: 'url('+bannerInfo.bgImg+')'}"></div>
     </div>
-    <div v-else class="filling-wrapper"></div>
+    <div v-else
+         class="filling-wrapper"></div>
   </div>
 
 </template>
@@ -156,7 +169,7 @@ export default {
     padding: 100px 0;
   }
   .time {
-    font-family: Lora, 'Times Mew Roman', serif;
+    font-family: Lora, "Times Mew Roman", serif;
     font-style: italic;
     font-weight: 300;
   }

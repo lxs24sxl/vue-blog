@@ -7,7 +7,10 @@
 
 <script>
 export default {
+  name: 'VBlock',
+
   props: ['block'],
+
   data () {
     return {}
   }

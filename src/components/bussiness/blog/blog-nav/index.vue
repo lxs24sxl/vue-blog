@@ -1,10 +1,15 @@
 <template>
   <nav class="category-nav">
     <h5 :class="{'small': size === 'small'}">{{title}}</h5>
-    <ul class="nav-list" v-if="!hasMore">
-      <li class="nav-item" v-for="item in tags" :key="item.id">{{ item.title }}</li>
+    <ul class="nav-list"
+        v-if="!hasMore">
+      <li class="nav-item"
+          v-for="item in tags"
+          :key="item.id">{{ item.title }}</li>
     </ul>
-    <router-link :to="to" class="small blue" v-else>查看全部</router-link>
+    <router-link :to="to"
+                 class="small blue"
+                 v-else>查看全部</router-link>
   </nav>
 </template>
 <script>

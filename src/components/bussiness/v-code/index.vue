@@ -8,15 +8,16 @@
 
 <script>
 export default {
+  name: 'VCode',
+
   props: ['contents', 'type'],
-  data () {
-    return {}
-  },
+
   computed: {
     code () {
       return this.strTrim(this.contents)
     }
   },
+
   methods: {
     strTrim (str) {
       let space = ''
@@ -60,18 +61,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div[class*='language-'] {
+div[class*="language-"] {
   position: relative;
   background-color: #282c34;
   border-radius: 6px;
 }
-div[class*='language-'] pre,
-div[class*='language-'] pre[class*='language-'] {
+div[class*="language-"] pre,
+div[class*="language-"] pre[class*="language-"] {
   background: transparent;
   position: relative;
   z-index: 1;
 }
-div[class*='language-']:before {
+div[class*="language-"]:before {
   position: absolute;
   z-index: 3;
   top: 0.8em;
@@ -79,23 +80,23 @@ div[class*='language-']:before {
   font-size: 0.75rem;
   color: hsla(0, 0%, 100%, 0.4);
 }
-div[class~='language-js']:before {
-  content: 'js';
+div[class~="language-js"]:before {
+  content: "js";
 }
-div[class~='language-html']:before {
-  content: 'html';
+div[class~="language-html"]:before {
+  content: "html";
 }
-div[class~='language-css']:before {
-  content: 'css';
+div[class~="language-css"]:before {
+  content: "css";
 }
-pre[class*='language-'] code,
+pre[class*="language-"] code,
 pre code {
   color: #fff;
   padding: 0;
   background-color: transparent;
   border-radius: 0;
 }
-pre[class*='language-'] {
+pre[class*="language-"] {
   line-height: 1.4;
   padding: 1.25rem 1.5rem;
   margin: 0.85rem 0;
