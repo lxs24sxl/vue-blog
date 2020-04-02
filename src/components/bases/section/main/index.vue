@@ -1,19 +1,17 @@
 <template>
-  <main class="main-wrapper">
+  <main class="main-section">
     <slot></slot>
   </main>
 </template>
 
 <script>
 export default {
-  data () {
-    return {}
-  }
+  name: 'MainSection'
 }
 </script>
 
 <style lang="scss" scoped>
-.main-wrapper {
+.main-section {
   display: flex;
   max-width: 960px;
   width: 100%;

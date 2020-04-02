@@ -16,9 +16,11 @@
     </ul>
   </div>
 </template>
+
 <script>
 import { tags } from '@/data/index'
 import IndexImg from '@/assets/images/index/index-bg.jpg'
+
 export default {
   data () {
     return {

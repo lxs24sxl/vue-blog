@@ -6,7 +6,7 @@
             v-for="item in lxsLink"
             :key="item.site"
             class="link-item">
-          <i :class="`iconfont icon-${item.site}`"></i>
+          <i :class="`iconfont ${item.site}`"></i>
         </li>
       </ul>
       <div class="link-title"
@@ -21,12 +21,12 @@ export default {
     return {
       lxsLink: [
         {
-          site: 'weibo',
+          site: 'iconweibo',
           link: 'https://www.weibo.com/3545563737/profile?topnav=1&wvr=6'
         },
-        { site: 'github', link: 'https://github.com/lxs24sxl' },
+        { site: 'icongithub', link: 'https://github.com/lxs24sxl' },
         {
-          site: 'facebook',
+          site: 'iconfacebook',
           link: 'https://www.facebook.com/profile.php?id=100012801641980'
         }
       ]

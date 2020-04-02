@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <Header></Header>
     <app-main></app-main>
     <Footer></Footer>
@@ -11,13 +11,11 @@ import { Header, AppMain, Footer } from './components/index'
 
 export default {
   name: 'Layout',
+
   components: {
     Header,
     AppMain,
     Footer
-  },
-  data () {
-    return {}
   }
 }
 </script>

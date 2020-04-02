@@ -1,19 +1,22 @@
 <template>
   <div class="tag-list"
        v-if="tags">
-    <tag v-for="item in tags"
-         :key="item.id"
-         :value="item"></tag>
+    <tag-item v-for="item in tags"
+              :key="item.id"
+              :value="item"></tag-item>
   </div>
   <div class="no-value"
        v-else>暂无标签</div>
 </template>
 
 <script>
-import Tag from './tag'
+import TagItem from './item'
+
 export default {
+  name: 'TagList',
+
   components: {
-    Tag
+    TagItem
   },
 
   props: {

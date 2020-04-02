@@ -1,8 +1,8 @@
 <template>
-  <li class="item">
-    <div class="entry">
-      <div class="content-box">
-        <div class="info-box">
+  <li class="blog-item">
+    <div class="blog-item-inner">
+      <div class="inner-info">
+        <div class="info">
           <div class="info-row title-row">
             {{ value.title }}
           </div>
@@ -34,8 +34,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.entry {
-  .content-box {
+.blog-item-inner {
+  .inner-info {
     min-height: 2.8rem;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ export default {
     &:hover {
       background-color: #eee;
     }
-    .info-box {
+    .info {
       cursor: pointer;
       .title-row {
         margin: 0.4rem 0.4rem;

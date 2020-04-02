@@ -1,5 +1,5 @@
 <template>
-  <div class="tag">
+  <div class="tag-item">
     {{ value.title }}
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tag {
+.tag-item {
   margin-right: 12px;
   margin-bottom: 12px;
   background-color: #f3f6f3;

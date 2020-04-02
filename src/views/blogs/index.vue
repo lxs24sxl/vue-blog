@@ -1,8 +1,11 @@
 <template>
   <div class="blogs">
-    <blogs-header :title="header_config.title" :desc="header_config.desc" :tags="tags" />
+    <blogs-header :title="header_config.title"
+                  :desc="header_config.desc"
+                  :tags="tags" />
     <blogs-content :blogs="blogs">
-      <div v-once slot="footer">目前就写了这么多~</div>
+      <div v-once
+           slot="footer">目前就写了这么多~</div>
     </blogs-content>
   </div>
 </template>
@@ -10,12 +13,14 @@
 <script>
 import { BlogsContent, BlogsHeader } from './components/index'
 import { tags, blogs } from '@/data/index'
+
 export default {
   name: 'home',
   components: {
     BlogsHeader,
     BlogsContent
   },
+
   data () {
     return {
       bannerInfo: {
@@ -33,6 +38,7 @@ export default {
       blogs: blogs
     }
   },
+
   created () {
     this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }
@@ -40,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+@import url("https://fonts.googleapis.com/css?family=PT+Mono");
 
 $bg: #4f000b;
 $itemBg1: #720026;
@@ -62,7 +68,7 @@ html {
   width: 100%;
   height: 100%;
   background: $bg;
-  font-family: 'PT Mono', monospace;
+  font-family: "PT Mono", monospace;
 }
 .blogs {
   max-width: 1110px;

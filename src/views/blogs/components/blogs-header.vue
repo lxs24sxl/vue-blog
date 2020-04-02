@@ -1,18 +1,17 @@
 <template>
   <div class="blogs-header">
-    <h1 class="text-normal">{{title}}</h1>
-    <p>{{desc}}</p>
+    <h1 class="blogs-header-title">{{title}}</h1>
+    <p class="blogs-header-desc">{{desc}}</p>
     <div v-if="isShowTags"
-         class="blogs-tags">
+         class="blogs-header-tags">
       <div v-once
-           class="tags-title">热门标签</div>
+           class="blogs-header-tags-title">热门标签</div>
       <tag-list :tags="tags"></tag-list>
     </div>
   </div>
 </template>
 
 <script>
-import { TagList } from '@/components/bussiness/tag/index'
 export default {
   props: {
     title: {
@@ -28,14 +27,13 @@ export default {
       default: null
     }
   },
-  components: {
-    TagList
-  },
+
   computed: {
     isShowTags () {
       return this.tags.length
     }
   },
+
   data () {
     return {
       tagList: [
@@ -56,18 +54,18 @@ export default {
     border-radius: 5px;
     padding: 25px 25px 15px;
     background-color: #fff;
-    p {
+    &-desc {
       margin: 0;
       padding: 0;
     }
-  }
-  &-tags {
-    display: flex;
-    .tags-title {
-      padding-top: 20px;
-      min-width: 70px;
+    &-tags {
       display: flex;
-      align-items: flex-start;
+      &-title {
+        padding-top: 20px;
+        min-width: 70px;
+        display: flex;
+        align-items: flex-start;
+      }
     }
   }
 }

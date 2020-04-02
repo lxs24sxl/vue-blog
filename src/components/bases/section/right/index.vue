@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <aside class="right-sidebar" :style="'width:' + width + 'px;min-width: width' ">
-      <slot></slot>
-    </aside>
-  </div>
+  <aside class="right-section"
+         :style="'width:' + width + 'px;min-width: width' ">
+    <slot></slot>
+  </aside>
 </template>
 
 <script>
 export default {
-  data () {
-    return {}
-  },
+  name: 'RightSection',
+
   props: {
     width: {
       type: Number,
@@ -21,12 +19,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.right-sidebar {
+.right-section {
   margin-left: 20px;
   background-color: #fff;
 }
 @media (max-width: 960px) {
-  .right-sidebar {
+  .right-section {
     display: none;
   }
 }

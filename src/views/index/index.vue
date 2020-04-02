@@ -1,39 +1,26 @@
 <template>
   <main-section>
     <left-section>
-      <blog-nav title="重点文章"
-                :tags="mainTags"></blog-nav>
-      <blog-panel :blogs="blogList"></blog-panel>
+      <category-nav title="重点文章"
+                    :tags="mainTags"></category-nav>
+      <blog-list :blogs="blogList"></blog-list>
     </left-section>
+
     <right-section :width="240">
-      <blog-nav title="热门标签"
-                size="small"
-                :has-more="true"
-                to="/tags/index"></blog-nav>
+      <category-nav title="热门标签"
+                    size="small"
+                    :has-more="true"
+                    to="/tags/index"></category-nav>
       <tag-list :tags="tagList"></tag-list>
     </right-section>
   </main-section>
 </template>
 
 <script>
-import {
-  LeftSection,
-  RightSection,
-  MainSection
-} from '@/container/section/index'
-import { BlogNav, BlogPanel } from '@/components/bussiness/blog/index'
-import { TagList } from '@/components/bussiness/tag/index'
 import { blogs, tags, mainTags } from '@/data/index'
 import IndexImg from '@/assets/images/index/index-bg.jpg'
+
 export default {
-  components: {
-    LeftSection,
-    RightSection,
-    MainSection,
-    BlogNav,
-    BlogPanel,
-    TagList
-  },
   data () {
     return {
       bannerInfo: {
@@ -48,6 +35,7 @@ export default {
       mainTags: mainTags
     }
   },
+
   created () {
     this.$store.commit('TOGGLE_BANNER', this.bannerInfo)
   }

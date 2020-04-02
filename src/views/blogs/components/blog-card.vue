@@ -1,12 +1,12 @@
 <template>
-  <div class="card-wrapper"
+  <div class="blog-card"
        @click="swiperToArticle">
-    <h3 class="title">{{blog.title}}</h3>
-    <p class="desc">{{blog.desc}}</p>
-    <div class="footer">
-      <span class="item author">{{blog.author}}</span>
-      <span class="item time">{{blog.time}}</span>
-      <span class="item copyright">{{blog.copyright === '1'?'原': '转'}}</span>
+    <h3 class="blog-card-title">{{blog.title}}</h3>
+    <p class="blog-card-desc">{{blog.desc}}</p>
+    <div class="blog-card-footer">
+      <span class="footer-item footer-item--author">{{blog.author}}</span>
+      <span class="footer-item footer-item--time">{{blog.time}}</span>
+      <span class="footer-item footer-item--copyright">{{blog.copyright === '1'?'原': '转'}}</span>
     </div>
   </div>
 </template>
@@ -14,9 +14,7 @@
 <script>
 export default {
   props: ['blog'],
-  data () {
-    return {}
-  },
+
   methods: {
     swiperToArticle () {
       this.$router.push({ name: 'article', query: { id: this.blog.id } })
@@ -26,8 +24,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  &-wrapper {
+.blog {
+  &-card {
     padding: 15px;
     margin-bottom: 10px;
     background-color: #fff;
@@ -40,25 +38,25 @@ export default {
     &:hover {
       background-color: rgba($color: #007bff, $alpha: 0.7);
       cursor: pointer;
-      .title {
+      .blog-card-title {
         color: white;
       }
-      .desc {
+      .blog-card-desc {
         color: rgba($color: white, $alpha: 0.8);
       }
-      .footer {
+      .blog-card-footer {
         color: rgba($color: white, $alpha: 0.5);
       }
     }
-    .title {
+    &-title {
       margin-bottom: 8px;
     }
-    .desc {
+    &-desc {
       margin-bottom: 6px;
     }
-    .footer {
+    &-footer {
       display: flex;
-      .item {
+      .footer-item {
         &:not(:last-child) {
           transition: all 0.3s;
           &::after {

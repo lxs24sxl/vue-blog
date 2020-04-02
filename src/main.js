@@ -8,12 +8,12 @@ import Navbar from 'bootstrap-vue/es/components/navbar'
 import plugins from './plugins'
 
 import 'assets/iconfont/iconfont.css'
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import 'assets/scss/common.scss'
 import 'assets/scss/reset.scss'
+
 Vue.use(plugins.components)
 Vue.use(Navbar)
 Vue.use(Nav)

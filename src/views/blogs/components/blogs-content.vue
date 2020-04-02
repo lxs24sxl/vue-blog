@@ -3,7 +3,7 @@
     <blog-card v-for="blog in blogs"
                :key="blog.id"
                :blog="blog"></blog-card>
-    <div class="footer">
+    <div class="blogs-content-footer">
       <slot name="footer"></slot>
     </div>
   </div>
@@ -11,13 +11,12 @@
 
 <script>
 import { BlogCard } from './index'
+
 export default {
   props: ['blogs'],
+
   components: {
     BlogCard
-  },
-  data () {
-    return {}
   }
 }
 </script>
@@ -28,7 +27,7 @@ export default {
     margin-top: 10px;
     width: 100%;
     border-radius: 5px;
-    .footer {
+    &-footer {
       text-align: center;
     }
   }

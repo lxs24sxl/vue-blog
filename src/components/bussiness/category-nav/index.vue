@@ -12,8 +12,11 @@
                  v-else>查看全部</router-link>
   </nav>
 </template>
+
 <script>
 export default {
+  name: 'CategoryNav',
+
   props: {
     tags: {
       type: Array,
@@ -36,9 +39,6 @@ export default {
       type: String,
       default: null
     }
-  },
-  data () {
-    return {}
   }
 }
 </script>

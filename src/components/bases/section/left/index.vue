@@ -1,14 +1,12 @@
 <template>
-  <div class="flex-auto">
+  <div class="left-section flex-auto">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {}
-  }
+  name: 'LeftSection'
 }
 </script>
 
